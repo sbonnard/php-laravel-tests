@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $mainTitle }}</title>
+    <title><?php echo e($mainTitle); ?></title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,20 +12,20 @@
 <body>
 
     <header class="header">
-        <img class="logo" src="{{ $logo }}" alt="">
-        <h1 class="ttl header__ttl">{{ $mainTitle }}</h1>
+        <img class="logo" src="<?php echo e($logo); ?>" alt="">
+        <h1 class="ttl header__ttl"><?php echo e($mainTitle); ?></h1>
         <nav>
             <ul>
-                <li class="nav_itm"><a class="nav__lnk" href="{{ @route('home') }}">Home</a></li>
-                <li class="nav_itm"><a class="nav__lnk" href="{{ @route('film.create') }}">Add Film</a></li>
+                <li class="nav_itm"><a class="nav__lnk" href="<?php echo e(@route('home')); ?>">Home</a></li>
+                <li class="nav_itm"><a class="nav__lnk" href="<?php echo e(@route('film.create')); ?>">Add Film</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
 
-        <form class="form" action="{{ @route('film.store') }}" method="post">
-            @csrf
+        <form class="form" action="<?php echo e(@route('film.store')); ?>" method="post">
+            <?php echo csrf_field(); ?>
             <label class="form__label" for="film_name">Nom du film</label>
             <input class="form__input" type="text" placeholder="La Soupe Aux Choux..." name="film_name" required>
             <label class="form__label" for="director">Nom du Réalisateur</label>
@@ -41,4 +41,4 @@
 
 </body>
 
-</html>
+</html><?php /**PATH C:\wamp64\www\php-laravel-tests\resources\views/create.blade.php ENDPATH**/ ?>

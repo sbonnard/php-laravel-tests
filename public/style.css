@@ -1,12 +1,12 @@
 :root {
   font-size: 16px;
-  --primary: #7f1b50;
-  --dark-primary: #5c0c35;
-  --dark-primary80: rgba(92, 12, 53, 0.8);
+  --primary: #06b7cb;
+  --dark-primary: #0b5767;
+  --dark-primary80: rgba(8, 141, 168, 0.8);
   --black: #000000;
   --white: #F8F8F8;
   --grey50: rgba(0, 0, 0, 0.05);
-  --secondary: #CA4F0A;
+  --secondary: #F7C600;
 }
 
 @font-face {
@@ -103,6 +103,10 @@ input[type=color] {
   padding: 1rem;
 }
 
+.text--white {
+  color: var(--white);
+}
+
 @media screen and (min-width: 764px) {
   .container {
     margin: auto;
@@ -156,7 +160,7 @@ input[type=color] {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  border-bottom: 2px solid var(--primary);
+  border-bottom: 2px solid var(--secondary);
   margin-bottom: 2rem;
 }
 
@@ -168,8 +172,6 @@ input[type=color] {
   max-width: 2rem;
   aspect-ratio: 1;
 }
-
-
 
 /* NAV  */
 
@@ -197,12 +199,17 @@ input[type=color] {
 }
 
 .ttl--white {
-  font-size: 1.25rem;
   color: var(--white);
+
+}
+
+.ttl--secondary {
+  color: var(--secondary);
+  font-size: 1.25rem;
 }
 
 .header__ttl{
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -221,6 +228,10 @@ input[type=color] {
   padding-top: 1rem;
 }
 
+.form__label {
+  font-size: 1.25rem;
+}
+
 .form__input {
   width: 13.75rem;
   padding: 0.5rem;
@@ -228,23 +239,29 @@ input[type=color] {
   background-color: var(--grey50);
 }
 
-.form_input:focus-visible {
+.form__input:focus-visible {
   outline-color: var(--secondary);
 }
 
-.form_input:hover {
+.form__input:hover {
   outline-color: var(--secondary);
 }
 
 .form__submit {
-  background-image: url(../img/add-film.svg);
+  font-family: 'Jura';
   background-repeat: no-repeat;
   background-size: cover;
-  font-size: 1.5rem;
-  color: var(--white);
-  width: 2.25rem;
-  aspect-ratio: 1/1;
+  font-size: 2rem;
+  background-color: var(--dark-primary);
+  color: var(--secondary);
+  width: 15rem;
+  padding: 1rem;
   border-radius: .5rem;
+}
+
+.form__submit:hover {
+  background-color: var(--secondary);
+  color: var(--dark-primary);
 }
 
 .form__input__placeholder {
@@ -380,7 +397,7 @@ input[type=color] {
   border-radius: 1.25rem;
   margin: 1.25rem 0;
   gap: 0.75rem;
-  background-color: var(--white);
+  background-color: var(--dark-primary);
 }
 
 .film__number {
@@ -483,6 +500,7 @@ input[type=color] {
   color: var(--white);
   background-color: var(--primary);
   padding: 2rem;
+  margin-top: 2rem;
 }
 
 .hidden {

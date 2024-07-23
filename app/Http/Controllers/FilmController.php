@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Film;
+use Symfony\Component\Console\Input\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class FilmController extends Controller
 {
@@ -14,8 +17,7 @@ class FilmController extends Controller
         return view('filmotron', [
             'mainTitle' => 'Filmotron',
             'logo' => 'img/filmotron.png',
-            'homeLink' => '#',
-            'createLink' => 'create.blade'
+            'films' => Film::all()
         ]);
     }
 
@@ -26,8 +28,7 @@ class FilmController extends Controller
     {
         return view('create', [
             'mainTitle' => 'Filmotron',
-            'logo' => 'img/filmotron.png',
-
+            'logo' => 'img/filmotron.png'
         ]);
     }
 
@@ -36,7 +37,13 @@ class FilmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $film = new Film;
+        $film->film_name = $request->input('film_name');
+        $film->director = $request->input('director');
+        $film->seen = $request->input('seen');
+        $film->save();
+
+        return Redirect::route('film.create');
     }
 
     /**
