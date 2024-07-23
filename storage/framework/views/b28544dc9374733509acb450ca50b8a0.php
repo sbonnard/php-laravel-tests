@@ -37,6 +37,8 @@
             </ul>
         </section>
 
+    <?php echo $__env->yieldSection(); ?>
+
     </main>
 
     <footer class="footer">© 2024 | Filmotron</footer>

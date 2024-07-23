@@ -24,10 +24,16 @@
 
     <main class="container">
 
+        
         <form class="form" action="{{ @route('film.store') }}" method="post">
+            @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
+            </div>
+            @endif
             @csrf
             <label class="form__label" for="film_name">Nom du film</label>
-            <input class="form__input" type="text" placeholder="La Soupe Aux Choux..." name="film_name" required>
+            <input class="form__input" type="text" placeholder="Jurassik Park..." name="film_name" required>
             <label class="form__label" for="director">Nom du Réalisateur</label>
             <input class="form__input" type="text" placeholder="Steven Spielberg..." name="director" required>
             <label class="form__label" for="seen">Date de visionnage</label>

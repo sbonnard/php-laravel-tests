@@ -440,23 +440,20 @@ input[type=color] {
 
 /* NOTIFS  */
 
-.notif {
+.alert {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-weight: bold;
+  font-size: 1.5rem;
   margin-top: 1.5rem;
 }
 
-.notif--error {
+.alert-error {
   color: var(--secondary);
 }
 
-.notif--error--big {
-  font-size: 1.5rem;
-}
-
-.notif--success {
+.alert-success {
   color: var(--dark-primary);
 }
 

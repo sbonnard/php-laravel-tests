@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 class FilmController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the films.
      */
     public function index()
     {
@@ -22,7 +22,7 @@ class FilmController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new film.
      */
     public function create()
     {
@@ -33,7 +33,7 @@ class FilmController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created film in storage.
      */
     public function store(Request $request)
     {
@@ -43,19 +43,20 @@ class FilmController extends Controller
         $film->seen = $request->input('seen');
         $film->save();
 
-        return Redirect::route('film.create');
+        return Redirect::route('film.create')->with('message', 'Film ajouté !');
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified film.
      */
     public function show(string $id)
     {
-        //
+        $film = FILM::find($id);
+        return view('film.show', ['films'=>$film]);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified film.
      */
     public function edit(string $id)
     {
@@ -63,7 +64,7 @@ class FilmController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified film in storage.
      */
     public function update(Request $request, string $id)
     {
@@ -71,7 +72,7 @@ class FilmController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified film from storage.
      */
     public function destroy(string $id)
     {
