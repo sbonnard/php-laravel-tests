@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class FilmController extends Controller
 {
+    protected $fillable = [
+        'film_name',
+        'director',
+        'seen', // Assure-toi d'inclure 'seen' ici
+    ];
+
     /**
      * Display a listing of the films.
      */
@@ -61,7 +67,10 @@ class FilmController extends Controller
     public function edit(string $id)
     {
         $film = Film::findOrFail($id);
-        return view('film.edit', compact($film));
+        return view('film.edit', ['film' => $film,
+        'mainTitle' => 'FILMOTRON',
+        'logo' => 'img/filmotron.png'
+    ]);
     }
 
     /**
@@ -70,16 +79,14 @@ class FilmController extends Controller
     public function update(Request $request, int $id)
     {
         $validated = $request->validate([
-            'film_name' => 'required|string|max:255',
-            'director' => 'required|string|max:255',
-            'seen' => 'required|boolean',
+            'film_name' => 'required|string|max:200',
+            'director' => 'required|string|max:200',
+            'seen' => 'required|date_format:Y-m-d',
         ]);
-
-        $film = Film::findOrFail($id);
-
-        $film->update($validated);
-
-        return redirect()->route('film.edit', $film->id)->with('message', 'Film modifié !');
+    
+        Film::findOrFail($id)->update($validated);
+    
+        return redirect()->route('film.edit', $id)->with('message', 'Film modifié !');
     }
 
     /**

@@ -14,5 +14,5 @@ Route::get('/show', [FilmController::class, 'show'])->name('film.show');
 Route::get('/edit/{id}', [FilmController::class, 'edit'])->where('id', '[0-9]+')
 ->name('film.edit');
 
-Route::put('/films/{id}', [FilmController::class, 'update'])->name('film.update'); 
+Route::post('/films/{id}', [FilmController::class, 'update'])->name('film.update'); 
 
