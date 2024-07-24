@@ -10,3 +10,9 @@ Route::get('/create', [FilmController::class, 'create'])->name('film.create');
 Route::post('/store', [FilmController::class, 'store'])->name('film.store');
 
 Route::get('/show', [FilmController::class, 'show'])->name('film.show');
+
+Route::get('/edit/{id}', [FilmController::class, 'edit'])->where('id', '[0-9]+')
+->name('film.edit');
+
+Route::put('/films/{id}', [FilmController::class, 'update'])->name('film.update'); 
+

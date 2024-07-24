@@ -15,7 +15,7 @@ class FilmController extends Controller
     public function index()
     {
         return view('filmotron', [
-            'mainTitle' => 'Filmotron',
+            'mainTitle' => 'FILMOTRON',
             'logo' => 'img/filmotron.png',
             'films' => Film::all()
         ]);
@@ -49,10 +49,10 @@ class FilmController extends Controller
     /**
      * Display the specified film.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
-        $film = FILM::find($id);
-        return view('film.show', ['films'=>$film]);
+        $film = Film::findOrFail($id);
+        return view('film.show', compact('film'));
     }
 
     /**
@@ -60,15 +60,26 @@ class FilmController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $film = Film::findOrFail($id);
+        return view('film.edit', compact($film));
     }
 
     /**
      * Update the specified film in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
-        //
+        $validated = $request->validate([
+            'film_name' => 'required|string|max:255',
+            'director' => 'required|string|max:255',
+            'seen' => 'required|boolean',
+        ]);
+
+        $film = Film::findOrFail($id);
+
+        $film->update($validated);
+
+        return redirect()->route('film.edit', $film->id)->with('message', 'Film modifié !');
     }
 
     /**
