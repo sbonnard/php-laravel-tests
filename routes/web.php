@@ -16,3 +16,6 @@ Route::get('/edit/{id}', [FilmController::class, 'edit'])->where('id', '[0-9]+')
 
 Route::post('/films/{id}', [FilmController::class, 'update'])->name('film.update'); 
 
+Route::delete('/films/{id}', [FilmController::class, 'destroy'])->name('film.destroy');
+
+

@@ -83,11 +83,15 @@ class FilmController extends Controller
         return redirect()->route('film.edit', $id)->with('message', 'Film modifié !');
     }
 
-    /**
-     * Remove the specified film from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+/**
+ * Remove the specified film from storage.
+ */
+public function destroy(int $id)
+{
+    $film = Film::findOrFail($id);
+
+    $film->delete();
+
+    return redirect()->route('home')->with('message', 'Film supprimé avec succès !');
+}
 }
