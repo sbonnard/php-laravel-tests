@@ -1,3 +1,5 @@
+@vite('resources/css/app.css')
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $mainTitle }}</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>

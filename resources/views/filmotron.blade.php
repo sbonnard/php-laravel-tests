@@ -11,7 +11,7 @@
             <p class="ttl--secondary"> Réalisateur : {{ $film->director }}</p>
             <p class="text--white">Regardé le {{ $film->seen }}</p>
             <a class="text--white" href="{{ @route('film.edit', ['id' => $film->id]) }}">modifier</a>
-            <a class="bin" href="{{ @route('film.destroy', ['id' => $film->id]) }}"></a>
+            <!-- <a class="bin" href="{{ @route('film.destroy', ['id' => $film->id]) }}"></a> -->
         </li>
         @endforeach
     </ul>

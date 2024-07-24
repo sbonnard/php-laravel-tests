@@ -11,7 +11,7 @@
             <p class="ttl--secondary"> Réalisateur : <?php echo e($film->director); ?></p>
             <p class="text--white">Regardé le <?php echo e($film->seen); ?></p>
             <a class="text--white" href="<?php echo e(@route('film.edit', ['id' => $film->id])); ?>">modifier</a>
-            <a class="bin" href="<?php echo e(@route('film.destroy', ['id' => $film->id])); ?>"></a>
+            <!-- <a class="bin" href="<?php echo e(@route('film.destroy', ['id' => $film->id])); ?>"></a> -->
         </li>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </ul>
