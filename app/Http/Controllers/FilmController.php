@@ -9,12 +9,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class FilmController extends Controller
 {
-    protected $fillable = [
-        'film_name',
-        'director',
-        'seen', // Assure-toi d'inclure 'seen' ici
-    ];
-
     /**
      * Display a listing of the films.
      */
