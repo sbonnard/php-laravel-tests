@@ -19,7 +19,7 @@
             <h1 class="ttl header__ttl">{{ $mainTitle }}</h1>
             <div class="hamburger">
                 <a href="#menu" id="hamburger-menu-icon">
-                    <img src="img/hamburger.svg" alt="Menu Hamburger">
+                    <img src="{{ $hamburger }}" alt="Menu Hamburger">
                 </a>
             </div>
             <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">

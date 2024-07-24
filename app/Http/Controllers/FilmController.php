@@ -17,6 +17,7 @@ class FilmController extends Controller
         return view('filmotron', [
             'mainTitle' => 'FILMOTRON',
             'logo' => 'img/filmotron.png',
+            'hamburger' => 'img/hamburger.svg',
             'films' => Film::all()
         ]);
     }
@@ -28,7 +29,8 @@ class FilmController extends Controller
     {
         return view('create', [
             'mainTitle' => 'Filmotron',
-            'logo' => 'img/filmotron.png'
+            'logo' => 'img/filmotron.png',
+            'hamburger' => 'img/hamburger.svg'
         ]);
     }
 
@@ -61,10 +63,12 @@ class FilmController extends Controller
     public function edit(string $id)
     {
         $film = Film::findOrFail($id);
-        return view('film.edit', ['film' => $film,
-        'mainTitle' => 'FILMOTRON',
-        'logo' => '../img/filmotron.png'
-    ]);
+        return view('film.edit', [
+            'film' => $film,
+            'mainTitle' => 'FILMOTRON',
+            'logo' => '../img/filmotron.png',
+            'hamburger' => '../img/hamburger.svg',
+        ]);
     }
 
     /**
@@ -77,21 +81,21 @@ class FilmController extends Controller
             'director' => 'required|string|max:200',
             'seen' => 'required|date_format:Y-m-d',
         ]);
-    
+
         Film::findOrFail($id)->update($validated);
-    
+
         return redirect()->route('film.edit', $id)->with('message', 'Film modifié !');
     }
 
-/**
- * Remove the specified film from storage.
- */
-public function destroy(int $id)
-{
-    $film = Film::findOrFail($id);
+    /**
+     * Remove the specified film from storage.
+     */
+    public function destroy(int $id)
+    {
+        $film = Film::findOrFail($id);
 
-    $film->delete();
+        $film->delete();
 
-    return redirect()->route('home')->with('message', 'Film supprimé avec succès !');
-}
+        return redirect()->route('home')->with('message', 'Film supprimé avec succès !');
+    }
 }
