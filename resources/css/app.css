@@ -40,6 +40,11 @@
     color: var(--white);
     cursor: pointer;
   }
+
+  a:hover {
+    color: var(--secondary);
+    filter: drop-shadow(0 0 1rem #06b7cb);
+  }
   
   @media screen and (min-width: 768px) {
     a {
@@ -107,7 +112,7 @@
     color: var(--white);
   }
   
-  @media screen and (min-width: 764px) {
+  @media screen and (min-width: 768px) {
     .container {
       margin: auto;
     }
@@ -125,7 +130,7 @@
       min-width: 100%;
       min-height: 22.5rem;
       position: fixed;
-      top: 4rem;
+      top: 5rem;
       left: 0;
       height: 0;
       visibility: hidden;
@@ -140,12 +145,13 @@
       font-size: 2rem;
       visibility: visible;
       opacity: 1;
-      background: var(--dark-primary);
+      background: var(--dark-primary80);
       line-height: 4;
+      position: absolute;
     }
   }
   
-  @media screen and (min-width: 764px) {
+  @media screen and (min-width: 768px) {
     .hamburger {
       display: none;
     }
@@ -169,9 +175,19 @@
   }
   
   .header__logo {
-    max-width: 2rem;
+    max-width: 4rem;
     aspect-ratio: 1;
   }
+
+  .header__container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    gap: 2rem;
+  }
+
+
   
   /* NAV  */
   
@@ -215,6 +231,10 @@
   @media screen and (max-width: 768px) {
     .ttl--small {
       max-width: 13.625rem;
+    }
+
+    .header__ttl {
+        font-size: 2rem;
     }
   }
   
@@ -293,15 +313,7 @@
   
   /* LINK  */
   
-  .lnk--theme {
-    background-image: url(../img/theme-btn.svg);
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 1.25rem;
-    aspect-ratio: 1;
-  }
+
   
   /* filmLIST  */
   

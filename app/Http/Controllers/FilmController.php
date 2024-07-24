@@ -63,7 +63,7 @@ class FilmController extends Controller
         $film = Film::findOrFail($id);
         return view('film.edit', ['film' => $film,
         'mainTitle' => 'FILMOTRON',
-        'logo' => 'img/filmotron.png'
+        'logo' => '../img/filmotron.png'
     ]);
     }
 
